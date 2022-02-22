@@ -17,9 +17,9 @@ terraform {
 // A provider section must be defined for each required_provider.
 provider "google" {
   credentials = file("jdouglass-terraform-experiment-a34b97d94098.json")
-  project = "jdouglass-terraform-experiment"
-  region = "us-west1"
-  zone = "us-west1-c"
+  project     = "jdouglass-terraform-experiment"
+  region      = "us-west1"
+  zone        = "us-west1-c"
 }
 
 // There will be one resource block per component of the infrastructure.

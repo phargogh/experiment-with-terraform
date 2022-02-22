@@ -9,4 +9,5 @@
 
 ## Initialize the infra
 
-1. ``terraform init``
+1. `terraform init`
+2. `terraform fmt` to apply consistent formatting across all `.tf` files in the CWD.
