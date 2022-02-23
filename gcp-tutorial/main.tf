@@ -45,18 +45,13 @@ resource "google_compute_instance" "server-1" {
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11" // current debian:stable.
-      size  = 100                      // size is in GB.
+      size  = 50                       // size is in GB.
       type  = "pd-balanced"            // balanced SSD.
     }
   }
 
-  // Local SSD
-  scratch_disk {
-    interface = "SCSI"
-  }
-
   network_interface {
-    network = "vpc_network"
+    network = "terraform-network"
   }
 
   metadata = {
