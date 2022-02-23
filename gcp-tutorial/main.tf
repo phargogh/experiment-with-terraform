@@ -37,16 +37,16 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_instance" "server-1" {
-  name = "server-1"  // must be a unique name.  Changing this forces a new VM to be spun up.
-  machine_type = "e2-medium"
+  name                      = "server-1" // must be a unique name.  Changing this forces a new VM to be spun up.
+  machine_type              = "e2-medium"
   allow_stopping_for_update = true // needed in order to resize the vm when needed.
-  zone = "us-central1-a"
+  zone                      = "us-central1-a"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"  // current debian:stable.
-      size = 100  // size is in GB.
-      type = "pd-balanced"  // balanced SSD.
+      image = "debian-cloud/debian-11" // current debian:stable.
+      size  = 100                      // size is in GB.
+      type  = "pd-balanced"            // balanced SSD.
     }
   }
 
