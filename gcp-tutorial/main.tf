@@ -35,3 +35,31 @@ provider "google" {
 resource "google_compute_network" "vpc_network" {
   name = "terraform-network"
 }
+
+resource "google_compute_instance" "server-1" {
+  name = "server-1"  // must be a unique name.  Changing this forces a new VM to be spun up.
+  machine_type = "e2-medium"
+  allow_stopping_for_update = true // needed in order to resize the vm when needed.
+  zone = "us-central1-a"
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"  // current debian:stable.
+      size = 100  // size is in GB.
+      type = "pd-balanced"  // balanced SSD.
+    }
+  }
+
+  // Local SSD
+  scratch_disk {
+    interface = "SCSI"
+  }
+
+  network_interface {
+    network = "vpc_network"
+  }
+
+  metadata = {
+    startup-script = "apt-get update && apt-get install docker.io"
+  }
+}
