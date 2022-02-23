@@ -24,5 +24,5 @@ Following https://learn.hashicorp.com/tutorials/terraform/google-cloud-platform-
 
 ## Objective: Get it to work with what we need
 
-- [ ] how to deploy a VM with a startup script?
+- [x] how to deploy a VM with a startup script? --> See "server-1" configuration
 - [ ] How to deploy with a build on GHA?
